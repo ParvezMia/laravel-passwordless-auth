@@ -1,6 +1,6 @@
 <?php
 
-namespace Jea\PasswordlessAuth\Models;
+namespace ParvezMia\PasswordlessAuth\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;

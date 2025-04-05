@@ -12,7 +12,7 @@
 */
 
 use Illuminate\Support\Facades\Route;
-use Jea\PasswordlessAuth\Http\Controllers\PasswordlessLoginController;
+use ParvezMia\PasswordlessAuth\Http\Controllers\PasswordlessLoginController;
 
 Route::group(['middleware' => ['web']], function () {
     Route::get('/login/passwordless', [PasswordlessLoginController::class, 'showLoginForm'])

@@ -1,13 +1,13 @@
 <?php
 
-namespace Jea\PasswordlessAuth\Http\Controllers;
+namespace ParvezMia\PasswordlessAuth\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
-use Jea\PasswordlessAuth\Models\LoginToken;
-use Jea\PasswordlessAuth\Notifications\PasswordlessLoginNotification;
+use ParvezMia\PasswordlessAuth\Models\LoginToken;
+use ParvezMia\PasswordlessAuth\Notifications\PasswordlessLoginNotification;
 
 class PasswordlessLoginController extends Controller
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Jea\PasswordlessAuth\Notifications;
+namespace ParvezMia\PasswordlessAuth\Notifications;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
