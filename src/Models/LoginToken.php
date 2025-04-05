@@ -30,7 +30,7 @@ class LoginToken extends Model
     /**
      * Generate a secure token for the user.
      *
-     * @param int $userId
+     * @param  int  $userId
      * @return self
      */
     public static function generateFor($userId)
