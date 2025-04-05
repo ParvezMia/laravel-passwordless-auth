@@ -1,6 +1,6 @@
 <?php
 
-namespace ParvezMia\PasswordlessAuth\Notifications;
+namespace ParvezMia\LaravelPasswordlessAuth\Notifications;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
