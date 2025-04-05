@@ -24,7 +24,6 @@ class PasswordlessLoginController extends Controller
     /**
      * Send a login link to the user.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\RedirectResponse
      */
     public function sendLoginLink(Request $request)
@@ -46,15 +45,15 @@ class PasswordlessLoginController extends Controller
         try {
             // Send the notification
             $user->notify(new PasswordlessLoginNotification($token->token));
-            
+
             // Log successful email sending
             Log::info("Login link sent to user: {$user->id} at {$identifier}");
-            
+
             return back()->with('status', 'We have emailed you a login link!');
         } catch (\Exception $e) {
             // Log the error
             Log::error("Failed to send login link: {$e->getMessage()}");
-            
+
             return back()->with('error', 'We could not send the login link. Please try again later.');
         }
     }
@@ -62,7 +61,6 @@ class PasswordlessLoginController extends Controller
     /**
      * Verify the login token and log the user in.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @param  string  $token
      * @return \Illuminate\Http\RedirectResponse
      */
@@ -71,7 +69,7 @@ class PasswordlessLoginController extends Controller
         $loginToken = LoginToken::where('token', $token)->first();
 
         // Check if token exists and is valid
-        if (!$loginToken || $loginToken->hasExpired()) {
+        if (! $loginToken || $loginToken->hasExpired()) {
             return redirect()->route('passwordless.login')
                 ->with('error', 'Invalid or expired login link.');
         }
@@ -88,7 +86,6 @@ class PasswordlessLoginController extends Controller
     /**
      * Log the user out.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\RedirectResponse
      */
     public function logout(Request $request)
