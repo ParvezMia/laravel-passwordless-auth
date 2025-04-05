@@ -7,7 +7,7 @@ A simple, secure passwordless authentication system for Laravel applications. Th
 You can install the package via composer:
 
 ```bash
-composer require jea/passwordless-auth
+composer require parvezmia/laravel-passwordless-auth
 ```
 
 ## Configuration
@@ -15,7 +15,7 @@ composer require jea/passwordless-auth
 After installation, publish the package assets:
 
 ```bash
-php artisan vendor:publish --provider="Jea\PasswordlessAuth\PasswordlessAuthServiceProvider"
+php artisan vendor:publish --provider="ParvezMia\LaravelPasswordlessAuth\PasswordlessAuthServiceProvider"
 ```
 
 This will publish:
@@ -89,7 +89,7 @@ php artisan queue:work
 To include the passwordless authentication routes in your application, add the following line to your `routes/web.php` file:
 
 ```php
-require_once(base_path('routes/passwordless-auth.php'));
+require __DIR__.'/passwordless-auth.php';
 ```
 
 ## Available Routes
@@ -107,7 +107,7 @@ The package provides the following routes:
 
 For the email functionality to work properly, ensure your Laravel application has proper email configuration in your `.env` file:
 
-```plaintext
+```
 MAIL_MAILER=smtp
 MAIL_HOST=your-smtp-host
 MAIL_PORT=587
@@ -126,28 +126,28 @@ You can publish specific components of the package:
 
 ```bash
 # Publish only configuration
-php artisan vendor:publish --provider="Jea\PasswordlessAuth\PasswordlessAuthServiceProvider" --tag="config"
+php artisan vendor:publish --provider="ParvezMia\LaravelPasswordlessAuth\PasswordlessAuthServiceProvider" --tag="config"
 
 # Publish only migrations
-php artisan vendor:publish --provider="Jea\PasswordlessAuth\PasswordlessAuthServiceProvider" --tag="migrations"
+php artisan vendor:publish --provider="ParvezMia\LaravelPasswordlessAuth\PasswordlessAuthServiceProvider" --tag="migrations"
 
 # Publish only views
-php artisan vendor:publish --provider="Jea\PasswordlessAuth\PasswordlessAuthServiceProvider" --tag="views"
+php artisan vendor:publish --provider="ParvezMia\LaravelPasswordlessAuth\PasswordlessAuthServiceProvider" --tag="views"
 
 # Publish only routes
-php artisan vendor:publish --provider="Jea\PasswordlessAuth\PasswordlessAuthServiceProvider" --tag="routes"
+php artisan vendor:publish --provider="ParvezMia\LaravelPasswordlessAuth\PasswordlessAuthServiceProvider" --tag="routes"
 
 # Publish only email-related files
-php artisan vendor:publish --provider="Jea\PasswordlessAuth\PasswordlessAuthServiceProvider" --tag="email"
+php artisan vendor:publish --provider="ParvezMia\LaravelPasswordlessAuth\PasswordlessAuthServiceProvider" --tag="email"
 
 # Publish only controllers
-php artisan vendor:publish --provider="Jea\PasswordlessAuth\PasswordlessAuthServiceProvider" --tag="controllers"
+php artisan vendor:publish --provider="ParvezMia\LaravelPasswordlessAuth\PasswordlessAuthServiceProvider" --tag="controllers"
 
 # Publish only models
-php artisan vendor:publish --provider="Jea\PasswordlessAuth\PasswordlessAuthServiceProvider" --tag="models"
+php artisan vendor:publish --provider="ParvezMia\LaravelPasswordlessAuth\PasswordlessAuthServiceProvider" --tag="models"
 
 # Publish all components at once
-php artisan vendor:publish --provider="Jea\PasswordlessAuth\PasswordlessAuthServiceProvider" --tag="all"
+php artisan vendor:publish --provider="ParvezMia\LaravelPasswordlessAuth\PasswordlessAuthServiceProvider" --tag="all"
 ```
 
 ### Customizing Views
@@ -172,8 +172,6 @@ After publishing the views, you can customize them in `resources/views/vendor/pa
 ```
 
 ### Login Flow
-
-The passwordless authentication flow works as follows:
 
 1. User visits the login page and enters their email address
 2. A unique, secure token is generated and stored in the database
@@ -209,51 +207,6 @@ If routes are not working:
 -   Tokens are stored securely in the database with a unique constraint
 -   The package uses Laravel's built-in CSRF protection
 
-## Advanced Usage
-
-### Custom User Provider
-
-If you need to use a custom user provider, you can modify the `user_model` option in the configuration file.
-
-### Custom Email Templates
-
-You can create your own email templates by publishing the views and modifying the email template files.
-
-### Integration with Existing Authentication
-
-This package can be used alongside Laravel's traditional authentication system, providing users with multiple login options.
-
-### Handling Failed Login Attempts
-
-The package automatically handles failed login attempts by:
-
-1. Validating the email exists in the users table
-2. Checking if the token has expired
-3. Providing appropriate error messages to the user
-
-### Customizing Token Generation
-
-If you need to customize how tokens are generated, you can publish the models and modify the `LoginToken` model.
-
-## API Reference
-
-### LoginToken Model
-
-The `LoginToken` model provides the following methods:
-
--   `generateFor($userId)`: Generates a new token for the specified user
--   `hasExpired()`: Checks if the token has expired
--   `user()`: Relationship to the user model
-
-### PasswordlessLoginController
-
-The controller provides the following methods:
-
--   `showLoginForm()`: Displays the login form
--   `sendLoginLink(Request $request)`: Processes the login request and sends the link
--   `verifyToken(Request $request, $token)`: Verifies the token and logs the user in
--   `logout(Request $request)`: Logs the user out
-
 ## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
@@ -264,4 +217,5 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 
 ```
 
+This README now includes the correct package name and installation instructions for your live package on Packagist.
 ```
