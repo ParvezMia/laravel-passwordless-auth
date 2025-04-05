@@ -1,0 +1,58 @@
+{
+    "name": "parvezmia/laravel-passwordless-auth",
+    "description": "A secure, user-friendly Laravel package for passwordless authentication via magic links",
+    "keywords": [
+        "laravel",
+        "passwordless-auth",
+        "authentication",
+        "passwordless",
+        "magic-link",
+        "secure-login",
+        "email-authentication"
+    ],
+    "homepage": "https://github.com/ParvezMia/laravel-passwordless-auth",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Md Parvez Mia",
+            "email": "parvezmia999@hotmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.0",
+        "illuminate/contracts": "^10.0||^11.0||^12.0",
+        "illuminate/support": "^10.0||^11.0||^12.0",
+        "illuminate/database": "^10.0||^11.0||^12.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^8.0||^9.0||^10.0",
+        "phpunit/phpunit": "^9.0||^10.0||^11.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "ParvezMia\\LaravelPasswordlessAuth\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "ParvezMia\\LaravelPasswordlessAuth\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "ParvezMia\\LaravelPasswordlessAuth\\PasswordlessAuthServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
