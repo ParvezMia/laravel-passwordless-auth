@@ -1,13 +1,13 @@
 <?php
 
-namespace ParvezMia\PasswordlessAuth\Http\Controllers;
+namespace ParvezMia\LaravelPasswordlessAuth\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
-use ParvezMia\PasswordlessAuth\Models\LoginToken;
-use ParvezMia\PasswordlessAuth\Notifications\PasswordlessLoginNotification;
+use ParvezMia\LaravelPasswordlessAuth\Models\LoginToken;
+use ParvezMia\LaravelPasswordlessAuth\Notifications\PasswordlessLoginNotification;
 
 class PasswordlessLoginController extends Controller
 {
